@@ -45,7 +45,7 @@ namespace Selenium_First_App
             SetMethods.EnterText("Initial", LocatorType.Name, "12");
             Console.WriteLine("Entered Initial:" + GetMethods.GetText( "Initial", LocatorType.Name));
             //FirstName
-            SetMethods.EnterText("FirstName", "id", "Testing Automation");
+            SetMethods.EnterText("FirstName", LocatorType.Id, "Testing Automation");
             Console.WriteLine("Entered FirstName:" + GetMethods.GetText( "FirstName", LocatorType.Id));
             //Click on Save
             SetMethods.Click("Save", LocatorType.Id);
