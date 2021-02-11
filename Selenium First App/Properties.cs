@@ -11,4 +11,16 @@ namespace Selenium_First_App
     {
         public static IWebDriver driver{ get; set; }
     }
+
+
+    enum LocatorType
+    {
+        Id, 
+        Name,
+        LinkText,
+        XPath,
+        CssName,
+        ClassName,
+        Selector
+    }
 }

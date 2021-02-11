@@ -39,16 +39,16 @@ namespace Selenium_First_App
         public void findElement()
         {
             //Select Title
-            SetMethods.SelectDropDown("TitleId", "id", "Mr.");
-            Console.WriteLine("Title Selected:" + GetMethods.GetDropDownValue( "TitleId", "id"));
+            SetMethods.SelectDropDown("TitleId", LocatorType.Id, "Mr.");
+            Console.WriteLine("Title Selected:" + GetMethods.GetDropDownValue( "TitleId", LocatorType.Id));
             //Initital
-            SetMethods.EnterText("Initial", "name", "12");
-            Console.WriteLine("Entered Initial:" + GetMethods.GetText( "Initial", "name"));
+            SetMethods.EnterText("Initial", LocatorType.Name, "12");
+            Console.WriteLine("Entered Initial:" + GetMethods.GetText( "Initial", LocatorType.Name));
             //FirstName
             SetMethods.EnterText("FirstName", "id", "Testing Automation");
-            Console.WriteLine("Entered FirstName:" + GetMethods.GetText( "FirstName", "id"));
+            Console.WriteLine("Entered FirstName:" + GetMethods.GetText( "FirstName", LocatorType.Id));
             //Click on Save
-            SetMethods.Click("Save", "name");
+            SetMethods.Click("Save", LocatorType.Id);
             Console.WriteLine("Clicked on Save");
         }
 
