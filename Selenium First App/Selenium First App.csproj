@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="EAPageObjects.cs" />
     <Compile Include="GetMethods.cs" />
+    <Compile Include="LoginPageObjects.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

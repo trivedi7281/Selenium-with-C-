@@ -29,22 +29,19 @@ namespace Selenium_First_App
             //naviate to Url
             Properties.driver.Manage().Window.Maximize();
             Properties.driver.Manage().Cookies.DeleteAllCookies();
-            Properties.driver.Navigate().GoToUrl("https://demosite.executeautomation.com/index.html?UserName=&Password=&Login=Login");
+            Properties.driver.Navigate().GoToUrl("https://demosite.executeautomation.com/Login.html");
             Console.WriteLine("Navigated to the 'demo Home Page' URL Sucessfully");
 
         }
 
         [Test]
         [Obsolete]
-        public void FindElement()
+        public void ExecuteTestCase()
         {
             //Intitialize the page by calling it reference
-            EAPageObjects page = new EAPageObjects();
-
-            page.FirstName.SendKeys("testing automation");
-            
-            page.Save.Click();
-
+            LoginPageObjects Loginpage = new LoginPageObjects();
+            EAPageObjects EAPage = Loginpage.Login("Execute", "automation");
+            EAPage.FillUserForm("" , "Akash", "Kumar");
 
             ////select title
             //setmethods.selectdropdown("titleid", locatortype.id, "mr.");

@@ -9,47 +9,41 @@ using System.Threading.Tasks;
 
 namespace Selenium_First_App
 {
-    class SetMethods
+    public static class SetMethods
     {
-        //Custom Method To Enter the Text 
-        public static void EnterText(String element , LocatorType Locator_Name, String Locator_Value)
+        
+        /// <summary>
+        /// Extended Custom Method To Enter the Text 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="Locator_Value"></param>
+        public static void EnterText(this IWebElement element, String Locator_Value)
         {
-            if (Locator_Name == LocatorType.Id)
-                Properties.driver.FindElement(By.Id(element)).SendKeys(Locator_Value);
-            if (Locator_Name == LocatorType.Name)
-                Properties.driver.FindElement(By.Name(element)).SendKeys(Locator_Value);
-            if (Locator_Name == LocatorType.XPath)
-                Properties.driver.FindElement(By.XPath(element)).SendKeys(Locator_Value);
-            if (Locator_Name == LocatorType.Selector)
-                Properties.driver.FindElement(By.CssSelector(element)).SendKeys(Locator_Value);
+            element.SendKeys(Locator_Value);
 
         }
 
-        //Custom Method To Click into a Button , checkbox, option etc. 
-        public static void Click(String element, LocatorType Locator_Name)
+        
+        /// <summary>
+        /// Custom Method To Click into a Button , checkbox, option etc. 
+        /// </summary>
+        /// <param name="element"></param>
+        public static void Clicks(this IWebElement element)
         {
-            if (Locator_Name == LocatorType.Id)
-                Properties.driver.FindElement(By.Id(element)).Click();
-            if (Locator_Name == LocatorType.Name)
-                Properties.driver.FindElement(By.Name(element)).Click();
-            if (Locator_Name == LocatorType.XPath)
-                Properties.driver.FindElement(By.XPath(element)).Click();
-            if (Locator_Name == LocatorType.Selector)
-                Properties.driver.FindElement(By.CssSelector(element)).Click();
+            element.Click();
 
         }
 
-        //Custom Method to Select a Dropdown Control
-        public static void SelectDropDown(String element, LocatorType Locator_Name, String Locator_Value)
+        /// <summary>
+        /// Custom Method to Select a Dropdown Control
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="Locator_Value"></param>
+        public static void SelectDropDown(this IWebElement element , String Locator_Value)
         {
-            if (Locator_Name == LocatorType.Id)
-                new SelectElement(Properties.driver.FindElement(By.Id(element))).SelectByText(Locator_Value);
-            if (Locator_Name == LocatorType.Name)
-                new SelectElement(Properties.driver.FindElement(By.Name(element))).SelectByText(Locator_Value);
-            if (Locator_Name == LocatorType.XPath)
-                new SelectElement(Properties.driver.FindElement(By.XPath(element))).SelectByText(Locator_Value);
-            if (Locator_Name == LocatorType.Selector)
-                new SelectElement(Properties.driver.FindElement(By.CssSelector(element))).SelectByText(Locator_Value);
+            
+           new SelectElement(element).SelectByText(Locator_Value);
+           
         }
 
 
