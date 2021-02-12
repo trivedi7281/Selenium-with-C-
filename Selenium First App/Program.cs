@@ -14,7 +14,6 @@ namespace Selenium_First_App
 
     class Program
     {
-        //Create the reference of our browser
         
 
         static void Main(String[] args)
@@ -24,7 +23,7 @@ namespace Selenium_First_App
 
 
         [SetUp]
-        public void navigateToURL()
+        public void NavigateToURL()
         {
             Properties.driver = new ChromeDriver();
             //naviate to Url
@@ -36,25 +35,34 @@ namespace Selenium_First_App
         }
 
         [Test]
-        public void findElement()
+        [Obsolete]
+        public void FindElement()
         {
-            //Select Title
-            SetMethods.SelectDropDown("TitleId", LocatorType.Id, "Mr.");
-            Console.WriteLine("Title Selected:" + GetMethods.GetDropDownValue( "TitleId", LocatorType.Id));
-            //Initital
-            SetMethods.EnterText("Initial", LocatorType.Name, "12");
-            Console.WriteLine("Entered Initial:" + GetMethods.GetText( "Initial", LocatorType.Name));
-            //FirstName
-            SetMethods.EnterText("FirstName", LocatorType.Id, "Testing Automation");
-            Console.WriteLine("Entered FirstName:" + GetMethods.GetText( "FirstName", LocatorType.Id));
-            //Click on Save
-            SetMethods.Click("Save", LocatorType.Name);
-            Console.WriteLine("Clicked on Save");
+            //Intitialize the page by calling it reference
+            EAPageObjects page = new EAPageObjects();
+
+            page.FirstName.SendKeys("testing automation");
+            
+            page.Save.Click();
+
+
+            ////select title
+            //setmethods.selectdropdown("titleid", locatortype.id, "mr.");
+            //console.writeline("title selected:" + getmethods.getdropdownvalue("titleid", locatortype.id));
+            ////initital
+            //setmethods.entertext("initial", locatortype.name, "12");
+            //console.writeline("entered initial:" + getmethods.gettext("initial", locatortype.name));
+            ////firstname
+            //setmethods.entertext("firstname", locatortype.id, "testing automation");
+            //console.writeline("entered firstname:" + getmethods.gettext("firstname", locatortype.id));
+            ////click on save
+            //setmethods.click("save", locatortype.name);
+            //console.writeline("clicked on save");
         }
 
 
         [TearDown]
-        public void close()
+        public void Close()
         {
             Properties.driver.Close();
             Console.WriteLine("Closed the Browser");
