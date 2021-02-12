@@ -17,27 +17,40 @@ namespace Selenium_First_App
             PageFactory.InitElements(Properties.driver, this);
         }
 
-        [FindsBy(How = How.Name, Using = "UserName")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='i0116']")]
         public IWebElement txtUserName { get; set; }
 
-        [FindsBy(How = How.Name, Using = "Password")]
+        [FindsBy(How = How.XPath, Using = "//input[@value='Next']")]
+        public IWebElement submitBtn { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='i0118']")]
         public IWebElement txtPassword { get; set; }
 
-        [FindsBy(How = How.Name, Using = "Login")]
-        public IWebElement loginBtn { get; set; }
+        [FindsBy(How = How.XPath, Using = "//input[@value='Sign in']")]
+        public IWebElement signIn { get; set; }
 
         [Obsolete]
-        public EAPageObjects Login(String userName , String password)
+        public void EnterUserName(String userName)
         {
-            ////Enter UserName
+            //Enter UserName
             txtUserName.SendKeys(userName);
-            ////Enter Password
-            txtPassword.SendKeys(password);
-            ////Click on LoginBtn
-            loginBtn.Submit();
+            //Click on LoginBtn
+            submitBtn.Clicks();
             //Return to the EAPagePbjects
-            return new EAPageObjects();
+            //return new EAPageObjects();
         }
+
+        public void EnterPassword( String password)
+        {
+            //Enter Password
+            txtPassword.SendKeys(password);
+            //Click on LoginBtn
+            signIn.Clicks();
+            //Return to the EAPagePbjects
+            //return new EAPageObjects();
+        }
+        
+        
 
 
 
